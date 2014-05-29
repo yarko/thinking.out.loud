@@ -55,15 +55,22 @@ master_doc = 'index'
 
 blog_title = '@yarkot'
 blog_baseurl = 'http://yarko.github.io/'
-blog_locations = {
+blog_locations = {  # loc'n name:  full-display-name, link
+    'Oak Park': ('Oak Park, IL', None),
     'Chicago': ('Chicago, IL', None),
+    'Mundelein': ('Mundelein, IL', None),
+    'University of Chicago': ('University of Chicago, IL', "http://uchicago.edu"),
 }
 blog_authors = {
     'Yarko': ('Yarko Tymciurak', 'http://yarkot.github.io'),
 }
+blog_default_author = 'Yarko'
+blog_default_location = 'Oak Park'
 
-disqus_shortname = ''
-disqus_pages = False
+disqus_shortname = 'forthinkingoutloud'
+disqus_pages = False  # other pages, not just blog posts...
+disqus_drafts = False  # accept comments on drafts
+
 fontawesome_css_file = 'css/font-awesome.css'
 
 
