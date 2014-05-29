@@ -1,11 +1,13 @@
 # Makefile for Sphinx documentation
 #
+SHELL:=/bin/bash -O extglob
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
-BUILDDIR      = ..
+PUB_REPO	  = yarko.github.io
+BUILDDIR      = ../$(PUB_REPO)
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -47,12 +49,20 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 
 clean:
-	rm -rf $(BUILDDIR)/!(docs|README.rst)
+	rm -rf $(BUILDDIR)/* $(BUILDDIR)/.doctrees
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)
+	touch $(BUILDDIR)/.nojekyll
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)."
+
+publish:
+	cd $(SPHINXBUILD)
+	git add --all .
+	git commit -m "published on: $(date)"
+	git push
+
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
