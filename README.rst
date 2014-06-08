@@ -1,3 +1,6 @@
+.. image:: https://badge.waffle.io/yarko/thinking.out.loud.png?label=ready&title=Ready 
+ :target: https://waffle.io/yarko/thinking.out.loud
+ :alt: 'Stories in Ready'
 README
 ======
 
